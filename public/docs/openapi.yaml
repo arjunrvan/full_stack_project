@@ -1,0 +1,425 @@
+openapi: 3.0.3
+info:
+  title: performance-app
+  description: ''
+  version: 1.0.0
+servers:
+  -
+    url: 'http://localhost:8000'
+paths:
+  /api/register:
+    post:
+      summary: 'Register a User'
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses: {  }
+      tags:
+        - Endpoints
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                  description: 'User name'
+                  example: Arjun
+                email:
+                  type: string
+                  description: 'User email'
+                  example: test@test.com
+                password:
+                  type: string
+                  description: 'Give password'
+                  example: password
+                job_title:
+                  type: string
+                  description: 'User job'
+                  example: Manager
+                department:
+                  type: string
+                  description: 'User dept'
+                  example: Sales
+                password_confirmation:
+                  type: string
+                  description: 'Repeat password'
+                  example: password
+              required:
+                - name
+                - email
+                - password
+                - job_title
+                - department
+                - password_confirmation
+      security: []
+  /api/login:
+    post:
+      summary: 'Login Api'
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses: {  }
+      tags:
+        - Endpoints
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                email:
+                  type: string
+                  description: 'User email'
+                  example: superadmin@invoke.com
+                password:
+                  type: string
+                  description: 'Give password'
+                  example: password
+              required:
+                - email
+                - password
+      security: []
+  /api/addtask:
+    post:
+      summary: 'Add Task'
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Authorization
+          description: ''
+          example: 'Bearer {{token}}'
+          schema:
+            type: string
+      responses: {  }
+      tags:
+        - Endpoints
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                  description: 'User job'
+                  example: 'Get 25 sales'
+                description:
+                  type: string
+                  description: 'User dept'
+                  example: 'Get 25 sales by 12 March 2021'
+                target:
+                  type: numeric
+                  description: 'User job'
+                  example: '12.02'
+                current_progress:
+                  type: numeric
+                  description: 'User dept'
+                  example: '24.15'
+                target_completion_days:
+                  type: integer
+                  description: 'User job'
+                  example: 50
+                user_id:
+                  type: integer
+                  description: 'User dept'
+                  example: 1
+              required:
+                - name
+                - description
+                - target
+                - current_progress
+                - target_completion_days
+                - user_id
+  /api/fetchtasks:
+    post:
+      summary: 'Fetch Tasks'
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Authorization
+          description: ''
+          example: 'Bearer {{token}}'
+          schema:
+            type: string
+      responses: {  }
+      tags:
+        - Endpoints
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                user_id:
+                  type: integer
+                  description: 'User id'
+                  example: 1
+              required:
+                - user_id
+  /api/deletetask:
+    post:
+      summary: 'Delete Tasks'
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Authorization
+          description: ''
+          example: 'Bearer {{token}}'
+          schema:
+            type: string
+      responses: {  }
+      tags:
+        - Endpoints
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                id:
+                  type: integer
+                  description: 'task id'
+                  example: 1
+                user_id:
+                  type: integer
+                  description: 'User id'
+                  example: 1
+              required:
+                - id
+                - user_id
+  /api/logout:
+    post:
+      summary: 'Log the user out (Invalidate the token).'
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Authorization
+          description: ''
+          example: 'Bearer {{token}}'
+          schema:
+            type: string
+      responses: {  }
+      tags:
+        - Endpoints
+  /api/updatetask:
+    post:
+      summary: 'Update Task'
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Authorization
+          description: ''
+          example: 'Bearer {{token}}'
+          schema:
+            type: string
+      responses: {  }
+      tags:
+        - Endpoints
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                  description: 'User job'
+                  example: 'Get 25 sales'
+                description:
+                  type: string
+                  description: 'User dept'
+                  example: 'Get 25 sales by 12 March 2021'
+                target:
+                  type: numeric
+                  description: 'User job'
+                  example: '12.02'
+                current_progress:
+                  type: numeric
+                  description: 'User dept'
+                  example: '24.15'
+                target_completion_days:
+                  type: integer
+                  description: 'User job'
+                  example: 50
+                id:
+                  type: integer
+                  description: 'Task id'
+                  example: 1
+              required:
+                - name
+                - description
+                - target
+                - current_progress
+                - target_completion_days
+                - id
+  /api/fetchemployees:
+    post:
+      summary: 'Fetch Employees list'
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Authorization
+          description: ''
+          example: 'Bearer {{token}}'
+          schema:
+            type: string
+      responses: {  }
+      tags:
+        - Endpoints
+  /api/fetcheverything:
+    post:
+      summary: 'Fetch Everything'
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Authorization
+          description: ''
+          example: 'Bearer {{token}}'
+          schema:
+            type: string
+      responses: {  }
+      tags:
+        - Endpoints
+tags:
+  -
+    name: Endpoints
+    description: ''

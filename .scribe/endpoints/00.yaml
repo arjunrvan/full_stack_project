@@ -1,0 +1,292 @@
+name: Endpoints
+description: ''
+endpoints:
+  -
+    httpMethods:
+      - POST
+    uri: api/register
+    metadata:
+      title: 'Register a User'
+      description: ''
+      authenticated: false
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    queryParameters: []
+    bodyParameters:
+      name:
+        name: name
+        description: 'User name'
+        required: true
+        example: Arjun
+        type: string
+      email:
+        name: email
+        description: 'User email'
+        required: true
+        example: test@test.com
+        type: string
+      password:
+        name: password
+        description: 'Give password'
+        required: true
+        example: password
+        type: string
+      job_title:
+        name: job_title
+        description: 'User job'
+        required: true
+        example: Manager
+        type: string
+      department:
+        name: department
+        description: 'User dept'
+        required: true
+        example: Sales
+        type: string
+      password_confirmation:
+        name: password_confirmation
+        description: 'Repeat password'
+        required: true
+        example: password
+        type: string
+    responses: []
+    responseFields: []
+  -
+    httpMethods:
+      - POST
+    uri: api/login
+    metadata:
+      title: 'Login Api'
+      description: ''
+      authenticated: false
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    queryParameters: []
+    bodyParameters:
+      email:
+        name: email
+        description: 'User email'
+        required: true
+        example: superadmin@invoke.com
+        type: string
+      password:
+        name: password
+        description: 'Give password'
+        required: true
+        example: password
+        type: string
+    responses: []
+    responseFields: []
+  -
+    httpMethods:
+      - POST
+    uri: api/addtask
+    metadata:
+      title: 'Add Task'
+      description: ''
+      authenticated: true
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+      Authorization: 'Bearer {{token}}'
+    urlParameters: []
+    queryParameters: []
+    bodyParameters:
+      name:
+        name: name
+        description: 'User job'
+        required: true
+        example: 'Get 25 sales'
+        type: string
+      description:
+        name: description
+        description: 'User dept'
+        required: true
+        example: 'Get 25 sales by 12 March 2021'
+        type: string
+      target:
+        name: target
+        description: 'User job'
+        required: true
+        example: '12.02'
+        type: numeric
+      current_progress:
+        name: current_progress
+        description: 'User dept'
+        required: true
+        example: '24.15'
+        type: numeric
+      target_completion_days:
+        name: target_completion_days
+        description: 'User job'
+        required: true
+        example: 50
+        type: integer
+      user_id:
+        name: user_id
+        description: 'User dept'
+        required: true
+        example: 1
+        type: integer
+    responses: []
+    responseFields: []
+  -
+    httpMethods:
+      - POST
+    uri: api/fetchtasks
+    metadata:
+      title: 'Fetch Tasks'
+      description: ''
+      authenticated: true
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+      Authorization: 'Bearer {{token}}'
+    urlParameters: []
+    queryParameters: []
+    bodyParameters:
+      user_id:
+        name: user_id
+        description: 'User id'
+        required: true
+        example: 1
+        type: integer
+    responses: []
+    responseFields: []
+  -
+    httpMethods:
+      - POST
+    uri: api/deletetask
+    metadata:
+      title: 'Delete Tasks'
+      description: ''
+      authenticated: true
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+      Authorization: 'Bearer {{token}}'
+    urlParameters: []
+    queryParameters: []
+    bodyParameters:
+      id:
+        name: id
+        description: 'task id'
+        required: true
+        example: 1
+        type: integer
+      user_id:
+        name: user_id
+        description: 'User id'
+        required: true
+        example: 1
+        type: integer
+    responses: []
+    responseFields: []
+  -
+    httpMethods:
+      - POST
+    uri: api/logout
+    metadata:
+      title: 'Log the user out (Invalidate the token).'
+      description: ''
+      authenticated: true
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+      Authorization: 'Bearer {{token}}'
+    urlParameters: []
+    queryParameters: []
+    bodyParameters: []
+    responses: []
+    responseFields: []
+  -
+    httpMethods:
+      - POST
+    uri: api/updatetask
+    metadata:
+      title: 'Update Task'
+      description: ''
+      authenticated: true
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+      Authorization: 'Bearer {{token}}'
+    urlParameters: []
+    queryParameters: []
+    bodyParameters:
+      name:
+        name: name
+        description: 'User job'
+        required: true
+        example: 'Get 25 sales'
+        type: string
+      description:
+        name: description
+        description: 'User dept'
+        required: true
+        example: 'Get 25 sales by 12 March 2021'
+        type: string
+      target:
+        name: target
+        description: 'User job'
+        required: true
+        example: '12.02'
+        type: numeric
+      current_progress:
+        name: current_progress
+        description: 'User dept'
+        required: true
+        example: '24.15'
+        type: numeric
+      target_completion_days:
+        name: target_completion_days
+        description: 'User job'
+        required: true
+        example: 50
+        type: integer
+      id:
+        name: id
+        description: 'Task id'
+        required: true
+        example: 1
+        type: integer
+    responses: []
+    responseFields: []
+  -
+    httpMethods:
+      - POST
+    uri: api/fetchemployees
+    metadata:
+      title: 'Fetch Employees list'
+      description: ''
+      authenticated: true
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+      Authorization: 'Bearer {{token}}'
+    urlParameters: []
+    queryParameters: []
+    bodyParameters: []
+    responses: []
+    responseFields: []
+  -
+    httpMethods:
+      - POST
+    uri: api/fetcheverything
+    metadata:
+      title: 'Fetch Everything'
+      description: ''
+      authenticated: true
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+      Authorization: 'Bearer {{token}}'
+    urlParameters: []
+    queryParameters: []
+    bodyParameters: []
+    responses: []
+    responseFields: []

@@ -1,0 +1,30 @@
+export const bgColor = 'aliceblue';
+
+export const SAVE_TOKEN = 'SAVE_TOKEN';
+export const LOGIN = 'LOGIN';
+export const LOGIN_SUCCESSFUL = 'LOGIN_SUCCESSFUL';
+export const LOGIN_FAIL = 'LOGIN_FAIL';
+
+export const REGISTER = 'REGISTER';
+export const REGISTER_SUCCESSFUL = 'REGISTER_SUCCESSFUL';
+export const REGISTER_FAIL = 'REGISTER_FAIL';
+
+export const LOGOUT = 'LOGOUT';
+export const LOGOUT_SUCCESSFUL = 'LOGOUT_SUCCESSFUL';
+export const LOGOUT_FAIL = 'LOGOUT_FAIL';
+
+export const ADD_TASK = 'ADD_TASK';
+export const ADD_TASK_SUCCESSFUL = 'ADD_TASK_SUCCESSFUL';
+export const ADD_TASK_FAIL = 'ADD_TASK_FAIL';
+
+export const FETCH_TASKS = 'FETCH_TASKS';
+export const FETCH_TASKS_SUCCESSFUL = 'FETCH_TASKS_SUCCESSFUL';
+export const FETCH_TASKS_FAIL = 'FETCH_TASKS_FAIL';
+
+export const DELETE_TASK = 'DELETE_TASKS';
+export const DELETE_TASK_SUCCESSFUL = 'DELETE_TASKS_SUCCESSFUL';
+export const DELETE_TASK_FAIL = 'DELETE_TASKS_FAIL';
+
+export const UPDATE_TASK = 'UPDATE_TASKS';
+export const UPDATE_TASK_SUCCESSFUL = 'UPDATE_TASKS_SUCCESSFUL';
+export const UPDATE_TASK_FAIL = 'UPDATE_TASKS_FAIL';
